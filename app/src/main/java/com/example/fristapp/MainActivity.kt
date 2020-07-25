@@ -33,6 +33,13 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
        drawer.addDrawerListener(toggle)
        toggle.syncState()
 
+        if(savedInstanceState == null) {
+            supportFragmentManager.beginTransaction()
+                .replace(R.id.fragment_container, ProfileFragment())
+                .commit()
+            navigationView.setCheckedItem(R.id.nav_person)
+        }
+
     }
 
    public override fun onBackPressed() {

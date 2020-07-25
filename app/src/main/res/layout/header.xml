@@ -11,17 +11,17 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/advent_pro_semibold"
-        android:text="About Me"
+        android:text="@string/text_1"
         android:textColor="#F1F6F1"
-        android:textSize="30dp" />
+        android:textSize="30sp" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/advent_pro_semibold"
-        android:text="Hello everyone,Nice to meet you."
+        android:text="@string/text_2"
         android:textColor="#F1F6F1"
-        android:textSize="14dp" />
+        android:textSize="14sp" />
 
 
 

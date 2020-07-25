@@ -6,4 +6,5 @@
     <color name="colorPrimartText">#212121</color>
     <color name="colorWhite">#ffff</color>
     <color name="colorGreen">#32CD32</color>
+    <color name="background">#A99488</color>
 </resources>

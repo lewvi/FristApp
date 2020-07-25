@@ -1,10 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#637AB7</color>
-    <color name="colorPrimaryDark">#512DAB</color>
+    <color name="colorPrimary">#7d7462</color>
+    <color name="colorPrimaryDark">#7d7462</color>
     <color name="colorAccent">#03DAC5</color>
     <color name="colorPrimartText">#212121</color>
     <color name="colorWhite">#ffff</color>
     <color name="colorGreen">#32CD32</color>
-    <color name="background">#A99488</color>
+    <color name="background">#7d7462</color>
+    <color name="background_fragmentProfile">#DAC6A3</color>
+    <color name="background_fragmentContact">#8b8e7c</color>
+
 </resources>

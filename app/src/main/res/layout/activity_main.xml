@@ -5,10 +5,10 @@
     android:id="@+id/drawer_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#D3D1C7"
     android:fitsSystemWindows="true"
     tools:context=".MainActivity"
     tools:openDrawer="start">
-
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -69,49 +69,8 @@
         android:layout_height="712dp"
         android:layout_gravity="start"
         app:headerLayout="@layout/header"
-        app:menu="@menu/main_manu" >
+        app:menu="@menu/main_manu">
 
     </com.google.android.material.navigation.NavigationView>
-
-    <!--<ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <TextView
-                android:id="@+id/textView"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="75dp"
-                android:layout_marginEnd="16dp"
-                android:layout_marginBottom="24dp"
-                android:text="@string/welcome"
-                android:textAlignment="center"
-                android:textColor="#7D7462"
-                android:textSize="30sp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <LinearLayout
-                android:id="@+id/layoutToolBar"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:gravity="center_vertical"
-                android:orientation="horizontal"
-                android:paddingStart="15dp"
-                android:paddingEnd="15dp"
-                app:layout_constraintBottom_toTopOf="parent">
-
-            </LinearLayout>
-
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
-    </ScrollView>-->
 
 </androidx.drawerlayout.widget.DrawerLayout>

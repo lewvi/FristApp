@@ -8,6 +8,6 @@
     <color name="colorGreen">#32CD32</color>
     <color name="background">#7d7462</color>
     <color name="background_fragmentProfile">#DAC6A3</color>
-    <color name="background_fragmentContact">#8b8e7c</color>
+    <color name="background_fragmentContact">#ffff</color>
 
 </resources>

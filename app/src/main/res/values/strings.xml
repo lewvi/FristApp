@@ -9,4 +9,23 @@
 
     <string name="navigation_draw_open">"Open Navigation"</string>
     <string name="navigation_draw_close">"Close Navigation"</string>
+
+    //profile
+    <string name="myProfile">My Profile</string>
+    <string name="pro_text">Name : Nutthakul Audomjirachot
+        \n\nNicname : Lew
+\n\nAge : 20
+\n\nbirthday : 10 may 2000
+\n\nUniversity : Rajamangala University Of Technology Isan
+\n\nMajor : Computer Science\n\n</string>
+
+
+    //contact
+    <string name="myContact">My Contact</string>
+    <string name="contact_text">\n\nE-mail : natthakun.au@rmuti.ac.th
+    \n\nPhone : 093548....
+    \n\nFacebook : Lew Morae
+    \n\nIG : lewntk\n\n</string>
+
+
 </resources>

@@ -10,7 +10,7 @@ public class addContact {
     private var id:Int = 0
     private var names: String? = null
     private var emails: String? = null
-    private var priority = 0
+
 
     fun Note(name: String?, email: String?) {
         this.names = name

@@ -9,5 +9,6 @@
     <color name="background">#7d7462</color>
     <color name="background_fragmentProfile">#DAC6A3</color>
     <color name="background_fragmentContact">#ffff</color>
+    <color name="buttonLabel">#FFFFFF</color>
 
 </resources>

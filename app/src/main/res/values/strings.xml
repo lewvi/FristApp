@@ -6,6 +6,10 @@
     <string name="navi">"Close"</string>
     <string name="welcome">Welcome to my app</string>
     <string name="add_word">Add your e-mail</string>
+    <string name="hint_word">Input your e-mail</string>
+    <string name="button_save">Save</string>
+
+    <string name="empty_not_saved">Word not saved because it is empty.</string>
     <string name="me_picture" />
 
     <string name="navigation_draw_open">"Open Navigation"</string>

@@ -6,46 +6,68 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 import androidx.sqlite.db.SupportSQLiteDatabase
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 
 
 @Database(entities = [addContact::class], version = 1)
-public abstract class addContactDatabase: RoomDatabase() {
+abstract class addContactDatabase: RoomDatabase() {
 
-    private var instance: addContactDatabase? = null
-    abstract fun addDao(): addContactDao?
+    abstract fun addDao(): addContactDao
 
-    @Synchronized
-    open fun getInstance(context: Context): addContactDatabase? {
-        if (instance == null) {
-            instance = Room.databaseBuilder<addContactDatabase>(
-                context.getApplicationContext(),
-                addContactDatabase::class.java, "addcontact_database"
-            )
-                .fallbackToDestructiveMigration()
-                .addCallback(roomCallback)
-                .build()
+    companion object {
+        @Volatile
+        private var INSTANCE: addContactDatabase? = null
 
+        fun getDatabase(
+            context: Context,
+            scope: CoroutineScope
+        ): addContactDatabase{
+            // if the INSTANCE is not null, then return it,
+            // if it is, then create the database
+            return INSTANCE ?: synchronized(this) {
+                val instance = Room.databaseBuilder(
+                    context.applicationContext,
+                    addContactDatabase::class.java,
+                    "word_database"
+                )
+                    // Wipes and rebuilds instead of migrating if no Migration object.
+                    // Migration is not part of this codelab.
+                    .fallbackToDestructiveMigration()
+                    .addCallback(addDatabaseCallback(scope))
+                    .build()
+                INSTANCE = instance
+                // return instance
+                instance
+            }
         }
-        return instance
-    }
+        private class addDatabaseCallback(
+            private val scope: CoroutineScope
+        ) : RoomDatabase.Callback() {
 
-    private val roomCallback: Callback = object : Callback() {
-        override fun onCreate(db: SupportSQLiteDatabase) {
-            super.onCreate(db)
-            //PopulateDbAsyncTask(instance).execute()
+            override fun onOpen(db: SupportSQLiteDatabase) {
+                super.onOpen(db)
+                // If you want to keep the data through app restarts,
+                // comment out the following line.
+                INSTANCE?.let { database ->
+                    scope.launch(Dispatchers.IO) {
+                        populateDatabase(database.addDao())
+                    }
+                }
+            }
+        }
+
+        fun populateDatabase(addDao: addContactDao) {
+            // Start the app with a clean database every time.
+            // Not needed if you only populate on creation.
+            addDao.deleteAll()
+
+            var word = addContact("Hello")
+            addDao.insert(word)
+
         }
     }
 }
-    private class PopulateDbAsyncTask(val handler: () -> Unit) : AsyncTask<Void, Void, Void>() {
-        private var addDao: addContactDao? = null
 
-        private fun PopulateDbAsyncTask(db: addContactDatabase) {
-           addDao = db.addDao()
-        }
-
-        override fun doInBackground(vararg void: Void?): Void? {
-            addDao?.insert(addContact())
-            return null
-        }
-    }
 

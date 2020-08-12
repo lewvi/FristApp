@@ -1,20 +1,18 @@
 package com.example.fristapp
 
+import androidx.lifecycle.LiveData
 import androidx.room.*
 
 @Dao
-public interface addContactDao {
+interface addContactDao {
 
-    @Insert
-    open fun insert(add:addContact)
+    @Query("SELECT * from addcontact_table ORDER BY `add` ASC")
+    fun getAlphabetizedWords(): LiveData<List<addContact>>
 
-    @Update
-    fun update(add:addContact)
-
-    @Delete
-    fun delete(add:addContact)
+    @Insert(onConflict = OnConflictStrategy.IGNORE)
+    fun insert(add: addContact)
 
     @Query("DELETE FROM addcontact_table")
-    fun clear()
+    fun deleteAll()
 
 }

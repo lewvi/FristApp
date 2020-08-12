@@ -6,12 +6,17 @@
             android:title="Profile"
             android:icon="@drawable/person"/>
 
-
-
         <item
             android:id="@+id/nav_contact"
             android:title="Contact"
             android:icon="@drawable/contact">
+
+        </item>
+
+        <item
+            android:id="@+id/nav_addContact"
+            android:title="AddFriend"
+            android:icon="@drawable/add">
 
         </item>
     </group>

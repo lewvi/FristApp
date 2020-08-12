@@ -36,6 +36,4 @@
             app:destination="@id/mainActivity"
             app:popUpTo="@id/mainActivity" />
     </fragment>
-
-
 </navigation>

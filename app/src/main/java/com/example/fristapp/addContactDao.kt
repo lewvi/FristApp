@@ -3,10 +3,10 @@ package com.example.fristapp
 import androidx.room.*
 
 @Dao
-interface addContactDao {
+public interface addContactDao {
 
     @Insert
-    fun insert(add:addContact)
+    open fun insert(add:addContact)
 
     @Update
     fun update(add:addContact)

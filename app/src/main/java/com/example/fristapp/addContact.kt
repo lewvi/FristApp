@@ -1,12 +1,13 @@
 package com.example.fristapp
 
+import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 
 @Entity(tableName = "addcontact_table")
-public class addContact {
+data class addContact(@PrimaryKey @ColumnInfo(name = "add") val add: String)
 
-    @PrimaryKey(autoGenerate = true)
+    /*@PrimaryKey(autoGenerate = true)
     private var id:Int = 0
     private var names: String? = null
     private var emails: String? = null
@@ -31,6 +32,5 @@ public class addContact {
 
     fun getEmail(): String? {
         return emails
-    }
+    }*/
 
-}

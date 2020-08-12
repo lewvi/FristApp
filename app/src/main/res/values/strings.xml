@@ -5,6 +5,7 @@
     <string name="text_2">Hello everyone ,Nice to meet you.</string>
     <string name="navi">"Close"</string>
     <string name="welcome">Welcome to my app</string>
+    <string name="add_word">Add your e-mail</string>
     <string name="me_picture" />
 
     <string name="navigation_draw_open">"Open Navigation"</string>

@@ -20,6 +20,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+
        var toolbar: Toolbar = findViewById(R.id.toolbar)
         setSupportActionBar(toolbar)
 
@@ -33,13 +34,6 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
        drawer.addDrawerListener(toggle)
        toggle.syncState()
-        
-       /* if(savedInstanceState == null) {
-            supportFragmentManager.beginTransaction()
-                .replace(R.id.fragment_container, ProfileFragment())
-                .commit()
-            navigationView.setCheckedItem(R.id.nav_person)
-        }*/
 
     }
 
@@ -68,6 +62,12 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
                 supportFragmentManager.beginTransaction()
                     .replace(R.id.fragment_container,ContactFragment())
                     .commit()
+            }
+            R.id.nav_addContact -> {
+                supportFragmentManager.beginTransaction()
+                    .replace(R.id.nav_addContact,ContactFragment())
+                    .commit()
+
             }
         }
 

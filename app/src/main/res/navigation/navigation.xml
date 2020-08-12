@@ -24,16 +24,32 @@
             app:popUpTo="@id/mainActivity" />
     </fragment>
 
-
     <fragment
-        android:id="@+id/ProfileFragment"
-        android:name="com.example.fristapp.ProfileFragment"
-        android:label="fragment_profile"
-        tools:layout="@layout/fragment_profile" >
+    android:id="@+id/addContactFragment"
+    android:name="com.example.fristapp.AddContactFragment"
+    android:label="add_contact"
+    tools:layout="@layout/add_contact" >
 
-        <action
-            android:id="@+id/action_ProfileFragment_to_mainActivity"
-            app:destination="@id/mainActivity"
-            app:popUpTo="@id/mainActivity" />
+    <action
+        android:id="@+id/action_ProfileFragment_to_mainActivity"
+        app:destination="@id/mainActivity"
+        app:popUpTo="@id/mainActivity" />
+
     </fragment>
+
+   <fragment
+    android:id="@+id/ProfileFragment"
+    android:name="com.example.fristapp.ProfileFragment"
+    android:label="fragment_profile"
+    tools:layout="@layout/fragment_profile" >
+
+    <action
+        android:id="@+id/action_ProfileFragment_to_mainActivity"
+        app:destination="@id/mainActivity"
+        app:popUpTo="@id/mainActivity" />
+
+</fragment>
+
+
+
 </navigation>

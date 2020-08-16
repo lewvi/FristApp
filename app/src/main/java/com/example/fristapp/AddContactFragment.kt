@@ -19,7 +19,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.navigation.NavigationView
 
-class AddContactFragment : AppCompatActivity(),NavigationView.OnNavigationItemSelectedListener {
+class AddContactFragment :AppCompatActivity(){
 
     private val newWordActivityRequestCode = 1
     private lateinit var addViewModel: addContactViewModel
@@ -65,10 +65,6 @@ class AddContactFragment : AppCompatActivity(),NavigationView.OnNavigationItemSe
                 Toast.LENGTH_LONG
             ).show()
         }
-    }
-
-    override fun onNavigationItemSelected(item: MenuItem): Boolean {
-        TODO("Not yet implemented")
     }
 }
 

@@ -12,7 +12,7 @@ class addContacttAdapter internal constructor(
 ) : RecyclerView.Adapter<addContacttAdapter.WordViewHolder>() {
 
     private val inflater: LayoutInflater = LayoutInflater.from(context)
-    private var adds = emptyList<addContact>() // Cached copy of words
+    private var adds = emptyList<addContact>()
 
     inner class WordViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val wordItemView: TextView = itemView.findViewById(R.id.textView)
@@ -33,5 +33,5 @@ class addContacttAdapter internal constructor(
         notifyDataSetChanged()
     }
 
-    override fun getItemCount() =adds.size
+    override fun getItemCount() = adds.size
 }

@@ -1,29 +1,34 @@
 package com.example.fristapp
 
 import android.app.Activity
-import android.app.Application
 import android.content.Intent
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.os.PersistableBundle
+import android.view.MenuItem
 import android.widget.Toast
+import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.Toolbar
+import androidx.core.view.GravityCompat
+import androidx.drawerlayout.widget.DrawerLayout
+import androidx.fragment.app.FragmentActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.floatingactionbutton.FloatingActionButton
+import com.google.android.material.navigation.NavigationView
 
-class AddContactFragment : AppCompatActivity(){
+class AddContactFragment : AppCompatActivity(),NavigationView.OnNavigationItemSelectedListener {
 
     private val newWordActivityRequestCode = 1
     private lateinit var addViewModel: addContactViewModel
 
+    private lateinit var drawer: DrawerLayout
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_new_contact)
+    override fun onCreate(savedInstanceState: Bundle?, persistentState: PersistableBundle?) {
+        super.onCreate(savedInstanceState, persistentState)
+        setContentView(R.layout.add_contact)
 
         val recyclerView = findViewById<RecyclerView>(R.id.recyclerview)
         val adapter = addContacttAdapter(this)
@@ -31,13 +36,9 @@ class AddContactFragment : AppCompatActivity(){
         recyclerView.layoutManager = LinearLayoutManager(this)
 
         // Get a new or existing ViewModel from the ViewModelProvider.
-        addViewModel = ViewModelProvider(this).get(addContactViewModel::class.java)
+        addViewModel = ViewModelProvider(this).get(addViewModel::class.java)
 
-        // Add an observer on the LiveData returned by getAlphabetizedWords.
-        // The onChanged() method fires when the observed data changes and the activity is
-        // in the foreground.
         addViewModel.allWords.observe(this, Observer { words ->
-            // Update the cached copy of the words in the adapter.
             words?.let { adapter.setWords(it) }
         })
 
@@ -46,7 +47,6 @@ class AddContactFragment : AppCompatActivity(){
             val intent = Intent(this@AddContactFragment, NewContact::class.java)
             startActivityForResult(intent, newWordActivityRequestCode)
         }
-
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, intentData: Intent?) {
@@ -60,11 +60,15 @@ class AddContactFragment : AppCompatActivity(){
             }
         } else {
             Toast.makeText(
-                applicationContext,
+                applicationContext ,
                 R.string.empty_not_saved,
                 Toast.LENGTH_LONG
             ).show()
         }
+    }
+
+    override fun onNavigationItemSelected(item: MenuItem): Boolean {
+        TODO("Not yet implemented")
     }
 }
 

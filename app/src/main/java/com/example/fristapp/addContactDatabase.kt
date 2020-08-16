@@ -1,7 +1,6 @@
 package com.example.fristapp
 
 import android.content.Context
-import android.os.AsyncTask
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
@@ -42,6 +41,7 @@ abstract class addContactDatabase: RoomDatabase() {
                 instance
             }
         }
+
         private class addDatabaseCallback(
             private val scope: CoroutineScope
         ) : RoomDatabase.Callback() {
@@ -65,7 +65,8 @@ abstract class addContactDatabase: RoomDatabase() {
 
             var word = addContact("Hello")
             addDao.insert(word)
-
+            word = addContact("World!")
+            addDao.insert(word)
         }
     }
 }

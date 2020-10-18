@@ -9,15 +9,13 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
+import androidx.fragment.app.replace
 import com.google.android.material.navigation.NavigationView
 
 
 class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
 
     private lateinit var drawer: DrawerLayout
-
-    private val newWordActivityRequestCode = 1
-    private lateinit var addViewModel: addContactViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -65,12 +63,6 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
                 supportFragmentManager.beginTransaction()
                     .replace(R.id.fragment_container,ContactFragment())
                     .commit()
-            }
-            R.id.nav_addContact -> {
-                supportFragmentManager.beginTransaction()
-                    //.replace(R.id.fragment_container,AddContactFragment())
-                    .commit()
-                    setContentView(R.layout.add_contact)
             }
         }
         drawer.closeDrawer(GravityCompat.START)

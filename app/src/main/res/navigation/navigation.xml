@@ -3,7 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/navigation"
-    app:startDestination="@id/mainActivity">
+    app:startDestination="@id/mainActivity"
+    tools:ignore="UnusedNavigation">
 
 
     <activity
@@ -22,19 +23,6 @@
             android:id="@+id/action_ContactFragment_to_mainActivity"
             app:destination="@id/mainActivity"
             app:popUpTo="@id/mainActivity" />
-    </fragment>
-
-    <fragment
-    android:id="@+id/addContactFragment"
-    android:name="com.example.fristapp.AddContactFragment"
-    android:label="add_contact"
-    tools:layout="@layout/add_contact" >
-
-    <action
-        android:id="@+id/action_ProfileFragment_to_mainActivity"
-        app:destination="@id/mainActivity"
-        app:popUpTo="@id/mainActivity" />
-
     </fragment>
 
    <fragment
